@@ -1,0 +1,246 @@
+2. appel_par_heure.html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appel par heure - PSAbsences</title>
+    <!-- Style général : navigation -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Style page appel -->
+    <!-- Icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body>
+<!-- ===================== SIDEBAR ===================== -->
+<div class="sidebar">
+    <div class="sidebar-header">
+        <i class="fas fa-school"></i>
+        PSAbsences
+    </div>
+    <div class="nav-links">
+        <a href="dashboard.html" class="nav-item">
+            <i class="fas fa-th-large"></i>
+            Tableau de bord
+        </a>
+        <a href="appel_par_heure.html" class="nav-item active">
+            <i class="fas fa-clipboard-check"></i>
+            Appel par heure
+        </a>
+        <a href="absences.html" class="nav-item">
+            <i class="fas fa-user-slash"></i>
+            Absences
+        </a>
+        <a href="rapports.html" class="nav-item">
+            <i class="fas fa-file-alt"></i>
+            Requêtes & Rapports
+        </a>
+        <a href="messages.html" class="nav-item">
+            <i class="fas fa-envelope"></i>
+            Messages aux parents
+        </a>
+        <a href="ajouter.php" class="nav-item">
+            <i class="fas fa-plus"></i>
+            Ajouter un eleve
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fas fa-cog"></i>
+            Administration
+        </a>
+    </div>
+    <div class="sidebar-footer">
+        <div class="user-profile">
+            <div class="user-avatar" id="user-avatar">?</div>
+            <div>
+                <div id="nom-enseignant"
+                    style="font-weight:600;font-size:0.9rem;color:white;">
+                    Chargement...
+                </div>
+                <div id="role-enseignant"
+                    style="font-size:0.75rem;color:#94a3b8;">
+                    ...
+                </div>
+            </div>
+        </div>
+        <a href="php/logout.php" class="nav-item"
+        style="padding:0; color:#ef4444;">
+            <i class="fas fa-sign-out-alt"></i>
+            Déconnexion
+        </a>
+    </div>
+</div>
+<!-- ===================== CONTENU ===================== -->
+<div class="main-contents">
+    <!-- En-tête -->
+    <div class="header">
+        <div class="header-title">
+            <h1>Appel par heure</h1>
+            <p id="date-affichage"  class="date-texte"></p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 15px;">
+                <div style="text-align: right;">
+                    <div style="font-weight: bold;">Admin École</div>
+                    <div style="font-size: 0.8rem; color: var(--text-muted);">Administrateur</div>
+                </div>
+                <div class="user-avatar"></div>
+            </div>
+
+    </div>
+    <!-- Messages -->
+    <div id="message-erreur" class="alert alert-danger" style="display:none;">
+        <i class="fas fa-exclamation-triangle"></i>
+        <span id="texte-erreur"></span>
+    </div>
+    <div id="message-confirmation" class="alert alert-success" style="display:none;">
+        <i class="fas fa-check-circle"></i>
+        <span id="texte-confirmation"></span>
+    </div>
+    <!-- ========== Formulaire Sélection ========== -->
+    <div class="card">
+        <h2 class="card-title">
+            <i class="fas fa-search"></i>
+            Sélectionner le cours
+        </h2>
+        <div class="content-grid">
+            <div class="form-group">
+                <label for="form-group label">
+                    <i class="fas fa-users"></i> Classe
+                </label>
+                <select id="select-classe" class="form-group">
+                    <option value="">-- Chargement... --</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="form-group label">
+                    <i class="fas fa-book"></i> Matière
+                </label>
+                <select id="select-matiere" class="form-group">
+                    <option value="">-- Chargement... --</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="input-date">
+                    <i class="fas fa-calendar-alt"></i> Date
+                </label>
+                <input type="date" id="input-date" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="input-heure-debut">
+                    <i class="fas fa-clock"></i> Début
+                </label>
+                <input type="time" id="input-heure-debut"
+                    class="form-control" value="08:00">
+            </div>
+            <div class="form-group">
+                <label for="input-heure-fin">
+                    <i class="fas fa-clock"></i> Fin
+                </label>
+                <input type="time" id="input-heure-fin"
+                       class="form-control" value="09:00">
+            </div>
+            <div class="form-group" style="justify-content:flex-end;">
+                <label>&nbsp;</label>
+                <button id="btn-charger"
+                        class="btn-primary"
+                        onclick="chargerEleves()">
+                    <i class="fas fa-list-ul"></i>
+                    Voir les élèves
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- ========== Liste des élèves ========== -->
+    <div id="section-appel" style="display:none;">
+        <div class="card">
+            <!-- Résumé cours -->
+            <p id="resume-cours" class="course-summary"></p>
+            <!-- Barre actions -->
+            <div class="actions-bar">
+                <div class="actions-left">
+                    <button class="btn-outline-success"
+                            onclick="marquerTous('present')">
+                        <i class="fas fa-check-double"></i>
+                        Tous présents
+                    </button>
+                    <button class="btn-danger"
+                            onclick="marquerTous('absent')">
+                        <i class="fas fa-times"></i>
+                        Tous absents
+                    </button>
+                </div>
+                <div class="counters">
+                    <span class="counter-badge present">
+                        <i class="fas fa-check-circle"></i>
+                        Présents : <strong id="nb-presents">0</strong>
+                    </span>
+                    <span class="counter-badge absent">
+                        <i class="fas fa-times-circle"></i>
+                        Absents : <strong id="nb-absents">0</strong>
+                    </span>
+                </div>
+            </div>
+            <!-- Tableau -->
+            <div class="table-container">
+                <table class="eleves-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Matricule</th>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Statut</th>
+                            <th>Présent</th>
+                            <th>Absent</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corps-tableau">
+                        <!-- Rempli par JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            <!-- Bouton valider -->
+            <div style="display:flex; justify-content:center; margin-top:20px;">
+                <button id="btn-valider"
+                        class="btn-success"
+                        onclick="validerAppel()">
+                    <i class="fas fa-paper-plane"></i>
+                    Valider l'appel
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Scripts -->
+<script src="app.js"></script>
+<script src="js/appel.js"></script>
+<script>
+window.addEventListener('load', function () {
+    // Affiche le nom de l'enseignant
+    afficherNomEnseignant();
+    // Charge les classes et matières
+    chargerClasses();
+    chargerMatieres();
+    // Date du jour automatique
+    const inputDate = document.getElementById('input-date');
+    if (inputDate && !inputDate.value) {
+        const d     = new Date();
+        const annee = d.getFullYear();
+        const mois  = String(d.getMonth() + 1).padStart(2, '0');
+        const jour  = String(d.getDate()).padStart(2, '0');
+        inputDate.value = `${annee}-${mois}-${jour}`;
+    }
+    // Date en français dans l'en-tête
+    const options = {
+        weekday: 'long', year: 'numeric',
+        month: 'long', day: 'numeric'
+    };
+    const dateFr = new Date().toLocaleDateString('fr-FR', options);
+    const elem   = document.getElementById('date-affichage');
+    if (elem) {
+        elem.textContent = dateFr.charAt(0).toUpperCase() + dateFr.slice(1);
+    }
+});
+</script>
+</body>
+</html

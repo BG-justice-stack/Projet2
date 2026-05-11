@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages aux parents - Gestion Scolaire</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header"><i class="fas fa-school"></i>  PSAbsences</div>
+        <div class="nav-links">
+            <a href="dashboard.html" class="nav-item"><i class="fas fa-th-large"></i> Tableau de bord</a>
+             <a href="appel_par_heure.html" class="nav-item">
+            <i class="fas fa-clipboard-check"></i>
+            Appel par heure
+        </a>
+            <a href="absences.html" class="nav-item"><i class="fas fa-user-slash"></i> Absences</a>
+            <a href="rapports.html" class="nav-item"><i class="fas fa-file-alt"></i> Requêtes & Rapports</a>
+            <a href="messages.html" class="nav-item active"><i class="fas fa-envelope"></i> Messages aux parents</a>
+            <a href="ajouter.php" class="nav-item"><i class="fas fa-plus"></i> Ajouter un eleve</a>
+            <a href="#" class="nav-item"><i class="fas fa-cog"></i> Administration</a>
+        </div>
+        <div class="sidebar-footer">
+            <div class="user-profile">
+        <!-- Avatar avec l'initiale du prénom -->
+                <div class="user-avatar" id="user-avatar">
+            <!-- L'initiale sera mise par JavaScript -->
+            ?
+                </div>
+                    <div>
+            <!--
+                id="nom-enseignant" OBLIGATOIRE
+                JavaScript remplacera "Chargement..." par le vrai nom
+            -->
+                        <div id="nom-enseignant"
+                            style="font-weight: bold; font-size: 0.9rem;">
+                            Chargement...
+                        </div>
+            <!--
+                id="role-enseignant" OBLIGATOIRE
+                JavaScript remplacera "..." par le vrai rôle
+            -->
+                            <div id="role-enseignant"
+                                style="font-size: 0.75rem; color: #94a3b8;">
+                                ...
+                            </div>
+        </div>
+    </div>
+    <!--
+        Lien déconnexion → pointe vers logout.php
+        et non auth.html directement
+    -->
+    <a href="php/logout.php"
+    class="nav-item"
+    style="padding: 0; color: #ef4444;">
+        <i class="fas fa-sign-out-alt"></i> Déconnexion
+    </a>
+</div>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <div class="header-title">
+                <h1>Messages aux parents</h1>
+                <p>Mardi 27 Mai 2025</p>
+            </div>
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <div style="text-align: right;"><div style="font-weight: bold;">Admin École</div><div style="font-size: 0.8rem; color: var(--text-muted);">Administrateur</div></div>
+                <div class="user-avatar"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Envoyer un message groupé</div>
+                <div style="display: flex; gap: 10px;">
+                    <select class="btn" style="background: white; border: 1px solid #e2e8f0;">
+                        <option>Toutes les classes</option>
+                        <option>9e A</option>
+                        <option>5e B</option>
+                    </select>
+                    <button class="btn btn-primary">Nouveau message</button>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Élève</th>
+                        <th>Classe</th>
+                        <th>Matière</th>
+                        <th>Heure</th>
+                        <th>Statut</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Paul Durand</td><td>5e A</td><td>Mathématiques</td><td>08H00</td><td><span class="status-badge status-present">Envoyé</span></td></tr>
+                    <tr><td>Alice Bernard</td><td>9e A</td><td>Anglais</td><td>09H00</td><td><span class="status-badge status-present">Envoyé</span></td></tr>
+                    <tr><td>Emma Petit</td><td>4e D</td><td>Histoire</td><td>11H00</td><td><span class="status-badge status-absent">Échec</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="app.js"></script>
+    <script>
+        window.addEventListener('load', function () {
+            afficherNomEnseignant();
+        });
+    </script>
+</body>
+</html>

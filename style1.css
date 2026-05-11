@@ -1,0 +1,148 @@
+
+
+
+        .form-container {
+            width: 100%;
+            max-width: 400px;
+            transition: all 0.3s ease;
+        }
+        .form-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+        
+            color: black;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px 5px;
+            border: none;
+            border-bottom: 2px solid black;
+            font-size: 16px;
+            transition: all 0.3s;
+            background: transparent;
+            margin-bottom: 20px;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-bottom: 2px solid #007bff;
+            box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 40px;
+            top: 38px;
+            color: #777;
+            cursor: pointer;
+        }
+
+        .switch-link {
+            text-align: center;
+            margin-top: 20px;
+            color: #555;
+        }
+        /* Animation entre les formulaires */
+        .hidden {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .visible {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .image-section {
+                display: none;
+            }
+
+            .form-section {
+                width: 100%;
+                min-height: 100vh;
+            }
+        }
+    .title{ 
+        text-align: center;
+        margin: 20px 0;
+        font-size: 28px;
+        font-weight: bold;
+        }
+/* ZONE FORMULAIRE */
+.form-zone {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 80px; /* 👈 espace pour éviter que le header cache */
+}
+/* CARTE FORMULAIRE */
+.form-card {
+    width: 100%;
+    max-width: 500px;
+    background: rgb(253, 253, 253);
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    
+}
+.form-card h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+.main-content {
+    margin-left: 250px; /* sidebar */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER EN HAUT */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* PARTIE DROITE */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.btn-primary {
+            background: #3b82f6;
+            color: white;
+            padding: 12px 32px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.2s;
+            box-shadow: 0 4px 8px rgba(59,130,246,0.2);
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
