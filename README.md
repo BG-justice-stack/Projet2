@@ -28,7 +28,7 @@ absences des élèves de manière simple et efficace.
 ---
 # Structure du Projet
 PSAbsences/
-│
+
 ├── index.html
 ├── auth.html              ← Connexion
 ├── inscription.html       ← Inscription enseignant
