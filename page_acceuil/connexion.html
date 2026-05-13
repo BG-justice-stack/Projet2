@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>PSAbsences | Gestion des Absences Scolaires</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">   
+</head>
+<body>
+  <div class="top-bar">
+     <div class="container">
+         <div class="logo-area">
+            <h1>PSNA<span>bsences</span></h1>
+         </div>
+        <div class="nav-links">
+            <a href="acceuil1.html">Accueil</a>
+            <a href="#container1">Contact</a>
+            <div class="auth-buttons">
+                <a href="#loginFormContainer" class="btn-outline-light" id="loginBtn">Se connecter</a>
+                <a href="#registerFormContainer" class="btn-solid" id="signupBtn">creer un compte</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <section id="about-section">
+         <h1 class="title">PSA<span>bsences</span></h1>
+<!-- Partie droite avec formulaires -->
+    <div class="form-section">
+        <div class="form-container">
+            <!-- Formulaire de connexion -->
+            <div id="loginFormContainer">
+                <h1>Connexion</h1>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">E-mail</label>
+                        <input type="email" id="loginEmail" name="email" required>
+                        <i class="fas fa-envelope icon"></i>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Mot de passe</label>
+                        <input type="password" id="loginPassword" name="password" required>
+                        <i class="fas fa-lock icon"></i>
+                        <i class="fas fa-eye toggle-password" onclick="togglePassword('loginPassword', this)"></i>
+                    </div>
+                    <button type="submit" class="btn-primary">Se connecter</button>
+                    <p class="switch-link">Pas encore de compte ? <button type="submit" class="btn-outline-white" onclick="showRegisterForm()">S'inscrire</button></p>
+                </form>
+            </div>
+
+            <!-- Formulaire d'inscription -->
+            <div class="hidden" id="registerFormContainer">
+                <h1>Inscription</h1>
+                <form action = "traitement.php" method = "POST">
+                     <div class="form-group">
+                        <label for="firstName">Matricule</label>
+                        <input type="text" id="firstName" name="Matricule" required>
+                        <i class="fas fa-user icon"></i>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstName">Nom</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                        <i class="fas fa-user icon"></i>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Prenom</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                        <i class="fas fa-user icon"></i>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">E-mail</label>
+                        <input type="email" id="registerEmail" name="email" required>
+                        <i class="fas fa-envelope icon"></i>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Mot de passe</label>
+                        <input type="password" id="registerPassword" name="password" required>
+                        <i class="fas fa-lock icon"></i>
+                        <i class="fas fa-eye toggle-password" onclick="togglePassword('registerPassword', this)"></i>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirmer le mot de passe</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                        <i class="fas fa-lock icon"></i>
+                        <i class="fas fa-eye toggle-password" onclick="togglePassword('confirmPassword', this)"></i>
+                    </div>
+                    <button type="submit" class="btn-primary">S'inscrire</button>
+                    <p class="switch-link">Déjà un compte ? <button type="submit" class="btn-outline-white" onclick="showLoginForm()">Se connecter</button></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+    <script>
+        // Fonction pour basculer entre afficher/masquer le mot de passe
+        function togglePassword(inputId, icon) {
+            const password = document.getElementById(inputId);
+            
+            if (password.type === 'password') {
+                password.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                password.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+
+        // Fonctions pour basculer entre les formulaires
+        function showRegisterForm() {
+            document.getElementById('loginFormContainer').classList.add('hidden');
+            document.getElementById('registerFormContainer').classList.remove('hidden');
+        }
+
+        function showLoginForm() {
+            document.getElementById('registerFormContainer').classList.add('hidden');
+            document.getElementById('loginFormContainer').classList.remove('hidden');
+        }
+
+        // Gestion de la soumission des formulaires
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Connexion réussie (simulation)');
+            // Ici vous ajouteriez le code pour traiter la connexion
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Vérification que les mots de passe correspondent
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                alert('Les mots de passe ne correspondent pas');
+                return;
+            }
+            
+            alert('Inscription réussie (simulation)');
+            // Ici vous ajouteriez le code pour traiter l'inscription
+            showLoginForm(); // Retour au formulaire de connexion après inscription
+        });
+    </script>
+<footer>
+    <div id="container1">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>PSAbsences</h4>
+                <p style="margin-bottom: 12px;">Plateforme de gestion des absences des écoles secondaires</p>
+                <p><i class="fas fa-map-marker-alt"></i>Douala , cameroun</p>
+            </div>
+            <div class="footer-col">
+                <h4>Liens utiles</h4>
+                <a href="#">Guide d’utilisation</a>
+                <a href="#">Centre d’aide</a>
+                <a href="#">Conditions d’utilisation</a>
+                <a href="#">Politique de confidentialité</a>
+                <a href="#">Espace Presse</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contacts</h4>
+                <p><i class="fas fa-phone-alt"></i> +237 123 33 44 55</p>
+                <p><i class="fas fa-envelope"></i> contact@PSAbsences.com</p>
+                <p><i class="fas fa-map-pin"></i> Douala , cameroun</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 PSAbsences – Tous droits réservés. Plateforme de gestion des absences.</p>
+        </div>
+    </div>
+</footer>    
+</body>
+</html>

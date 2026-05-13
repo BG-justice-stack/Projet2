@@ -1,0 +1,190 @@
+l
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>PSNAbsences | Gestion des Absences Scolaires</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<div class="notification-toast" id="toastMsg">✅ Action simulée</div>
+
+<div class="top-bar">
+    <div class="container">
+        <div class="logo-area">
+            <h1>PSA<span>bsences</span></h1>
+        </div>
+        <div class="nav-links">
+            <a href="#hero">Accueil</a>
+            <a href="#about-section">À propos</a>
+            <a href="#who-section">Fonctionnalités</a>
+            <a href="#news-section">Actualités</a>
+            <a href="#container1">Contact</a>
+            <div class="auth-buttons">
+                <a href="connexion.html" class="btn-outline-light" id="loginBtn">Se connecter</a>
+                <a href="connexion.html" class="btn-solid" id="signupBtn"> créer compte</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section id="hero">
+    <div class="container hero-grid">
+        <div class="hero-content">
+            <h2>PLATEFORME<br>Gérez les absences des élèves en toute simplicité</h2>
+            <p>Suivez les présences par heure, recevez des notifications automatiques et consultez l’historique à tout moment.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn-primary" id="accessPlatformBtn"><i class="fas fa-arrow-right"></i> Accéder à la plateforme</a>
+                <a href="connexion.html" class="btn-secondary" id="createAccountHeroBtn"><i class="fas fa-user-plus"></i> Créer un compte</a>
+            </div>
+            <div class="security-badge">
+                <span><i class="fas fa-lock"></i> 100% Sécurisé</span>
+                <span><i class="fas fa-bell"></i> Notifications aux parents</span>
+                <span><i class="fas fa-chart-line"></i> Historique complet</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="roles-section">
+    <div class="container">
+        <div class="roles-grid">
+            <div class="role-card">
+                <i class="fas fa-chalkboard-user"></i>
+                <h3>Enseignants</h3>
+                <p>Faire l’appel par heure</p>
+            </div>
+            <div class="role-card">
+                <i class="fas fa-building"></i>
+                <h3>Administrations</h3>
+                <p>Gérer les établissements</p>
+            </div>
+            <div class="role-card">
+                <i class="fas fa-chart-simple"></i>
+                <h3>Rapports</h3>
+                <p>Statistiques & Requêtes</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="stats-section">
+    <div class="container stats-grid">
+        <div class="stat-item"><h4>12 450</h4><p>Elèves inscrits</p></div>
+        <div class="stat-item"><h4>876</h4><p>Enseignants</p></div>
+        <div class="stat-item"><h4>124</h4><p>Etablissements</p></div>
+        <div class="stat-item"><h4>90%</h4><p>Taux de présence ce mois</p></div>
+    </div>
+</section>
+
+<section id="about-section">
+    <div class="container about-flex">
+        <div class="about-text">
+            <h3>À PROPOS DE NOUS</h3>
+            <p style="font-size:1.1rem; margin-bottom: 20px;">Une solution digitale pour moderniser la gestion des absences scolaires</p>
+            <p>PSNAbsences est une plateforme conçue pour les écoles primaires et secondaires afin de simplifier la gestion des présences, informer les parents en temps réel et améliorer le suivi académique.</p>
+            <ul>
+                <li><i class="fas fa-clock"></i> Suivi par heure, matière et enseignant</li>
+                <li><i class="fas fa-envelope"></i> Notifications SMS/Email/WhatsApp aux parents</li>
+                <li><i class="fas fa-history"></i> Historique et rapports détaillés</li>
+            </ul>
+            <a href="#" style="margin-top: 20px; display: inline-block; color:#3b82f6; font-weight:600;">En savoir plus →</a>
+        </div>
+        <div class="feature-list">
+            <h3 style="margin-bottom: 24px;">FONCTIONNALITÉS</h3>
+            <div class="feature-item"><i class="fas fa-check-circle"></i> <strong>Appel par heure</strong><br>Présence ou absence à chaque cours</div>
+            <div class="feature-item"><i class="fas fa-bell"></i> <strong>Notifications automatiques</strong><br>Messages envoyés aux parents</div>
+            <div class="feature-item"><i class="fas fa-chart-pie"></i> <strong>Statistiques & Rapports</strong><br>Absences par période, classe, matière...</div>
+            <div class="feature-item"><i class="fas fa-globe"></i> <strong>Accès en ligne</strong><br>Disponible 24h/24 sur tous vos appareils</div>
+            <a href="#" style="margin-top: 12px; display: inline-block; color:#3b82f6;">Voir toutes les fonctionnalités →</a>
+        </div>
+    </div>
+</section>
+<section id="who-section">
+    <div class="container">
+        <h2 style="font-size: 1.9rem; text-align: center;">QUI PEUT UTILISER CETTE PLATEFORME ?</h2>
+        <div class="who-grid">
+            <div class="who-card"><i class="fas fa-chalkboard fa-2x" style="color:#3b82f6;"></i><h3>Enseignants</h3><p>Faire l’appel en un clic · Gérer les classes</p></div>
+            <div class="who-card"><i class="fas fa-landmark fa-2x" style="color:#3b82f6;"></i><h3>Administrations</h3><p>Superviser les écoles · Gérer des rapports</p></div>
+            <div class="who-card"><i class="fas fa-school fa-2x" style="color:#3b82f6;"></i><h3>Directions d’écoles</h3><p>Gérer le personnel · Suivre les performances</p></div>
+            <div class="who-card"><i class="fas fa-user-cog fa-2x" style="color:#3b82f6;"></i><h3>Accès Admin</h3><p>Gestion complète</p></div>
+            <div class="who-card"><i class="fas fa-chart-line fa-2x" style="color:#3b82f6;"></i><h3>Analyste</h3><p>Tableaux de bord</p></div>
+        </div>
+    </div>
+</section>
+
+<section id="news-section">
+    <div class="container">
+        <h2 style="font-size: 1.9rem;">NOUVEAUTÉS</h2>
+        <p style="margin-bottom: 16px;">Actualités & Annonces</p>
+        <div class="news-cards">
+            <div class="news-card">
+                <span class="news-badge">Événement</span>
+                <h3>Lancement officiel de la plateforme dans 5 nouvelles régions</h3>
+                <p>Extension nationale pour une meilleure couverture scolaire.</p>
+            </div>
+            <div class="news-card">
+                <span class="news-badge">Mise à jour</span>
+                <h3>Nouveau : notifications WhatsApp pour les parents</h3>
+                <p>Recevez les alertes d'absence instantanément via WhatsApp.</p>
+            </div>
+            <div class="news-card">
+                <span class="news-badge">08 Mai 2025</span>
+                <h3>Informations supplémentaires disponible en ligne</h3>
+                <p>Nouveau centre d'aide et documentation enrichie.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="container">
+        <h2 style="font-size: 2rem;">Prêt à moderniser la gestion des absences ?</h2>
+        <p style="margin-top: 12px; font-size: 1.2rem;">Rejoignez plus de 124 établissements qui utilisent déjà PSNAbsences</p>
+        <div class="cta-buttons">
+            <a href="#" class="btn-light" id="demoBtn"><i class="fas fa-calendar-alt"></i> Demander une démonstration</a>
+            <a href="connexion.html" class="btn-outline-white" id="freeAccountBtn"><i class="fas fa-user-plus"></i> Créer un compte gratuit</a>
+        </div>
+    </div>
+</section>
+<footer>
+    <div id="container1">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>PSAbsences</h4>
+                <p style="margin-bottom: 12px;">Plateforme de gestion des absences des écoles secondaires</p>
+                <p><i class="fas fa-map-marker-alt"></i>Douala , cameroun</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                 <a href="#hero">Accueil</a>
+            <a href="#about-section">À propos</a>
+            <a href="#who-section">Fonctionnalités</a>
+            <a href="#news-section">Actualités</a>
+            <a href="#container1">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h4>Liens utiles</h4>
+                <a href="#">Guide d’utilisation</a>
+                <a href="#">Centre d’aide</a>
+                <a href="#">Conditions d’utilisation</a>
+                <a href="#">Politique de confidentialité</a>
+                <a href="#">Espace Presse</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contacts</h4>
+                <p><i class="fas fa-phone-alt"></i> +237 123 33 44 55</p>
+                <p><i class="fas fa-envelope"></i> contact@PSAbsences.co</p>
+                <p><i class="fas fa-map-pin"></i> Douala , cameroun</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 PSAbsences – Tous droits réservés. Plateforme de gestion des absences.</p>
+        </div>
+    </div>
+</footer>
+<script src="forme.js" defer></script> 
+</body>
+</html>
